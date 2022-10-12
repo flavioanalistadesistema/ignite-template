@@ -28,16 +28,11 @@ export function Food(props: FoodProps) {
   const toggleAvailable = async () => {
     const { food } = props;
     const { isAvailable } = state;
-    console.log('food', food);
-    console.log('isAvailable', isAvailable);
 
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
     });
-
-    console.log('food afeter', food);
-    console.log('isAvailable afeter', isAvailable);
     setState({ isAvailable: !isAvailable });
   }
 
